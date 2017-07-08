@@ -22,9 +22,7 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_suggest_word
-    skip
     trie.insert("pizza")
-    trie.suggest("piz")
-    assert_equal "pizza", trie.suggest
+    assert_equal ["pizza"], trie.suggest("piz")
   end
 end

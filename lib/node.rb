@@ -6,7 +6,4 @@ class Node
     @end_of_word = false
   end
 
-  def has_kids?(letter)
-    children.has_key?(letter)
-  end
 end

@@ -14,27 +14,27 @@
       <img src="./assets/0.10.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-08T14:19:13-06:00">2017-07-08T14:19:13-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-07-08T15:25:12-06:00">2017-07-08T15:25:12-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">97.3%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         2.73
+         3.42
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>2</b> files in total.
-    <b>21</b> relevant lines. 
-    <span class="green"><b>21</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>37</b> relevant lines. 
+    <span class="green"><b>36</b> lines covered</span> and
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -53,21 +53,21 @@
       <tr>
         <td class="strong"><a href="#2da27483c2812ee84aa9a29e3d5684627f4dc48b" class="src_link" title="lib/node.rb">lib/node.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>12</td>
-        <td>7</td>
-        <td>7</td>
+        <td>9</td>
+        <td>5</td>
+        <td>5</td>
         <td>0</td>
-        <td>4.4</td>
+        <td>7.4</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#554bc9885a2d80ab711384abc5de63b4b4161bb3" class="src_link" title="lib/trie.rb">lib/trie.rb</a></td>
-        <td class="green strong">100.0 %</td>
-        <td>24</td>
-        <td>14</td>
-        <td>14</td>
-        <td>0</td>
-        <td>1.9</td>
+        <td class="green strong">96.88 %</td>
+        <td>52</td>
+        <td>32</td>
+        <td>31</td>
+        <td>1</td>
+        <td>2.8</td>
       </tr>
       
     </tbody>
@@ -91,8 +91,8 @@
     <h3>lib/node.rb</h3>
     <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>7</b> relevant lines. 
-      <span class="green"><b>7</b> lines covered</span> and
+      <b>5</b> relevant lines. 
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
@@ -124,14 +124,14 @@
           <code class="ruby">  def initialize</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="5">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="17" data-linenumber="5">
+          <span class="hits">17</span>
           
           <code class="ruby">    @children    = {}</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="6">
-          <span class="hits">11</span>
+        <li class="covered" data-hits="17" data-linenumber="6">
+          <span class="hits">17</span>
           
           <code class="ruby">    @end_of_word = false</code>
         </li>
@@ -148,25 +148,7 @@
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def has_kids?(letter)</code>
-        </li>
-      
-        <li class="covered" data-hits="5" data-linenumber="10">
-          <span class="hits">5</span>
-          
-          <code class="ruby">    children.has_key?(letter)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
+        <li class="never" data-hits="" data-linenumber="9">
           
           
           <code class="ruby">end</code>
@@ -180,11 +162,11 @@
         <div class="source_table" id="554bc9885a2d80ab711384abc5de63b4b4161bb3">
   <div class="header">
     <h3>lib/trie.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">96.88 %</span> covered</h4>
     <div>
-      <b>14</b> relevant lines. 
-      <span class="green"><b>14</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>32</b> relevant lines. 
+      <span class="green"><b>31</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -257,26 +239,26 @@
           <code class="ruby">  def insert(word)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="12">
+          <span class="hits">2</span>
           
           <code class="ruby">    current_node = @root</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="13">
+          <span class="hits">2</span>
           
           <code class="ruby">    word.each_char do |letter|</code>
         </li>
       
-        <li class="covered" data-hits="5" data-linenumber="14">
-          <span class="hits">5</span>
+        <li class="covered" data-hits="10" data-linenumber="14">
+          <span class="hits">10</span>
           
-          <code class="ruby">      if current_node.has_kids?(letter)</code>
+          <code class="ruby">      if current_node.children.has_key?(letter)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="15">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="15">
+          
           
           <code class="ruby">        current_node = current_node.children[letter]</code>
         </li>
@@ -287,49 +269,217 @@
           <code class="ruby">      else</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="17">
-          <span class="hits">4</span>
+        <li class="covered" data-hits="10" data-linenumber="17">
+          <span class="hits">10</span>
           
           <code class="ruby">        current_node.children[letter] = Node.new</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="18">
+        <li class="covered" data-hits="10" data-linenumber="18">
+          <span class="hits">10</span>
           
-          
-          <code class="ruby">      end</code>
+          <code class="ruby">        current_node = current_node.children[letter]</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="20">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="21">
+          <span class="hits">2</span>
           
           <code class="ruby">    current_node.end_of_word = true</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="2" data-linenumber="22">
+          <span class="hits">2</span>
           
           <code class="ruby">    @count += 1</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="22">
-          
-          
-          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="25">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def suggest(string)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sug_array = []</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="27">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    last_node(string)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="28">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    get_all_words(last_node(string), string, sug_array)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="29">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    sug_array</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="32">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def get_all_words(current_node=current_node, string, sug_array)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="33">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    sug_array &lt;&lt; string if current_node.end_of_word</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="34">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    if !current_node.children.empty?</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="35">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      current_node.children.keys.each do |letter|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="36">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        node_string = string + letter</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="37">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        get_all_words(current_node.children[letter],node_string,sug_array)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="38">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="42">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def last_node(string)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="43">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    current_node = @root</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="44">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    string.each_char do |letter|</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="45">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      if current_node.children.has_key?(letter)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="46">
+          <span class="hits">6</span>
+          
+          <code class="ruby">        current_node = current_node.children[letter]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="47">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="49">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    current_node</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="52">
           
           
           <code class="ruby">end</code>
