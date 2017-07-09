@@ -32,6 +32,7 @@ class Trie
     sug_array = []
     get_last_node(string)
     get_all_words(get_last_node(string), string, sug_array)
+    sug_array = weighted_suggestions(sug_array,string)
     sug_array
   end
 
@@ -62,6 +63,21 @@ class Trie
     else
       last_node.complete_word[word] = 1
     end
+  end
+
+  def select_sort(last_node)
+    last_node.complete_word.keys.sort_by do |k|
+      last_node.complete_word[k]
+    end.reverse
+  end
+
+  def weighted_suggestions(sug_array, string)
+    last = get_last_node(string)
+    sug = select_sort(last)
+    sug.map do |word|
+      sug_array.delete(word)
+    end
+    sug + sug_array
   end
 
 
