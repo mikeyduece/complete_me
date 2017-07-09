@@ -36,14 +36,14 @@ class TrieTest < Minitest::Test
     assert_equal 235886, trie.count
   end
 
-  def test_for_dictionary_word
-    dictionary = File.read("/usr/share/dict/words")
-    trie.populate(dictionary)
-    assert_equal ["whippersnapper"], trie.suggest("whippers")
-  end
-
   def test_it_can_suggest_word
     trie.insert("pizza")
     assert_equal ["pizza"], trie.suggest("piz")
+  end
+
+  def test_it_can_suggest_a_dictionary_word
+    dictionary = File.read("/usr/share/dict/words")
+    trie.populate(dictionary)
+    assert_equal ["whippersnapper"], trie.suggest("whippers")
   end
 end

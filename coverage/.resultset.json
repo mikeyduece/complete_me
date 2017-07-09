@@ -59,6 +59,8 @@
         0,
         null,
         null,
+        1,
+        null,
         null
       ],
       "/Users/mbutera/turing/1module/projects/complete_me/lib/node.rb": [
@@ -76,6 +78,6 @@
         null
       ]
     },
-    "timestamp": 1499566448
+    "timestamp": 1499567291
   }
 }

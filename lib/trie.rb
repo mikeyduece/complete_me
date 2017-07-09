@@ -55,4 +55,6 @@ class Trie
     current_node
   end
 
+  def select(sub_string, word)
+  end
 end
