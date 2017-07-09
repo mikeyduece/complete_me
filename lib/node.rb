@@ -5,9 +5,13 @@ class Node
                 :complete_word
                 :end_of_word
 
-  def initialize(word)
+  def initialize
     @children = {}
     @complete_word = {}
     @end_of_word = false
   end
-  
+
+  def in_children?(char)
+    @chldren.key?(char)
+  end
+end
