@@ -57,7 +57,7 @@ class Trie
 
   def select(substr, word)
     last_node = get_last_node(substr)
-    if last_node.children.has_key?(word)
+    if last_node.complete_word.has_key?(word)
       last_node.complete_word[word] += 1
     else
       last_node.complete_word[word] = 1
