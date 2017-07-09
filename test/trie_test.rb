@@ -24,10 +24,12 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_insert_multiple_words
-    trie.insert("pizza")
-    trie.insert("apple")
-    trie.insert("bicycle")
-    assert_equal 3, trie.count
+    trie.insert("never")
+    trie.insert("gonna")
+    trie.insert("give")
+    trie.insert("you")
+    trie.insert("up")
+    assert_equal 5, trie.count
   end
 
   def test_it_can_populate
@@ -45,5 +47,28 @@ class TrieTest < Minitest::Test
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal ["whippersnapper"], trie.suggest("whippers")
+  end
+
+  def test_select_weighs_one_word
+    trie.insert("pizza")
+    last_node = trie.get_last_node("piz")
+    assert_equal ({}), last_node.complete_word
+    trie.select("piz", "pizza")
+    assert_equal ({"pizza" => 1}), last_node.complete_word
+  end
+
+  def test_select_weighs_multiple_selections
+    trie.insert("apple")
+    trie.insert("apartment")
+    trie.insert("appliance")
+    last_node = trie.get_last_node("ap")
+    assert_equal ({}), last_node.complete_word
+    trie.select("ap", "apartment")
+    trie.select("ap", "apple")
+    trie.select("ap", "apple")
+    trie.select("ap", "appliance")
+    assert_equal ({"apartment" => 1, "apple" => 2, "appliance" => 1}),
+      last_node.complete_word
+
   end
 end

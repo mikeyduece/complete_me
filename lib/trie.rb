@@ -30,8 +30,8 @@ class Trie
 
   def suggest(string)
     sug_array = []
-    last_node(string)
-    get_all_words(last_node(string), string, sug_array)
+    get_last_node(string)
+    get_all_words(get_last_node(string), string, sug_array)
     sug_array
   end
 
@@ -45,7 +45,7 @@ class Trie
     end
   end
 
-  def last_node(string)
+  def get_last_node(string)
     current_node = @root
     string.each_char do |letter|
       if current_node.children.has_key?(letter)
@@ -55,6 +55,14 @@ class Trie
     current_node
   end
 
-  def select(sub_string, word)
+  def select(substr, word)
+    last_node = get_last_node(substr)
+    if last_node.children.has_key?(word)
+      last_node.complete_word[word] += 1
+    else
+      last_node.complete_word[word] = 1
+    end
   end
+
+
 end
