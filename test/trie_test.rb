@@ -33,6 +33,7 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_populate
+    skip
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal 235886, trie.count
@@ -44,6 +45,7 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_suggest_a_dictionary_word
+    skip
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal ["whippersnapper"], trie.suggest("whippers")
@@ -69,6 +71,19 @@ class TrieTest < Minitest::Test
     trie.select("ap", "appliance")
     assert_equal ({"apartment" => 1, "apple" => 2, "appliance" => 1}),
       last_node.complete_word
+  end
 
+  def test_it_can_sort_by_weight
+    trie.insert("apple")
+    trie.insert("apartment")
+    trie.insert("appliance")
+    trie.select("ap", "apartment")
+    trie.select("ap", "apartment")
+    trie.select("ap", "apple")
+    trie.select("ap", "apple")
+    trie.select("ap", "apple")
+    trie.select("ap", "appliance")
+    expected = ["apple", "apartment", "appliance"]
+    assert_equal expected, trie.suggest("ap")
   end
 end
