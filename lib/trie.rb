@@ -23,9 +23,7 @@ class Trie
   end
 
   def populate(dictionary)
-    dictionary.split.each do |word|
-      insert(word)
-    end
+    dictionary.split.each {|word| insert(word)}
   end
 
   def suggest(string)

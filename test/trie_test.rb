@@ -31,7 +31,6 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_populate
-    skip
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal 235886, trie.count
@@ -43,7 +42,6 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_suggest_a_dictionary_word
-    skip
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal ["whippersnapper"], trie.suggest("whippers")
