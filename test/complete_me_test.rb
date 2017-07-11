@@ -31,6 +31,7 @@ class CompleteMeTest < Minitest::Test
   end
 
   def test_it_can_populate
+    skip
     dictionary = File.read("/usr/share/dict/words")
     cm.populate(dictionary)
     assert_equal 235886, cm.count
@@ -42,6 +43,7 @@ class CompleteMeTest < Minitest::Test
   end
 
   def test_it_can_suggest_a_dictionary_word
+    skip
     dictionary = File.read("/usr/share/dict/words")
     cm.populate(dictionary)
     assert_equal ["whippersnapper"], cm.suggest("whippers")

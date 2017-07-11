@@ -11,7 +11,7 @@ class Trie
 
   def addresses
     addresses = ""
-    filename ||= "./test/address_fixture.csv"
+    filename ||= "./test/addresses.csv"
     CSV.foreach filename,  headers: true, header_converters: :symbol do |row|
       addresses << row[:full_address] + ","
     end
@@ -21,11 +21,11 @@ class Trie
   def insert(word)
     current_node = @root
     return if word == ""
-    traverse(word,current_node)
+    traverse(word, current_node)
     @count += 1
   end
 
-  def traverse(word,current_node)
+  def traverse(word, current_node)
     word.each_char do |letter|
       if current_node.children[letter]
         current_node = current_node.children[letter]
