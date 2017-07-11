@@ -18,18 +18,22 @@ class Trie
     addresses
   end
 
-  def insert(word)
-    current_node = @root
-    word.each_char do |letter|
-      if current_node.children[letter]
-        current_node = current_node.children[letter]
-      else
-        current_node.children[letter] = Node.new
-        current_node = current_node.children[letter]
+  #### INSERT IS GOING TO NEED TO BE BROKEN OUT ####
+  def insert(word, current_node = @root)
+    if word != ""
+      word.each_char do |letter|
+        if current_node.children[letter]
+          current_node = current_node.children[letter]
+        else
+          current_node.children[letter] = Node.new
+          current_node = current_node.children[letter]
+        end
       end
+      current_node.end_of_word = true
+      @count += 1
+    else
+      return
     end
-    current_node.end_of_word = true
-    @count += 1
   end
 
   def populate(dictionary)

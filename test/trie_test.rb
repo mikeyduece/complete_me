@@ -30,6 +30,11 @@ class TrieTest < Minitest::Test
     assert_equal 5, trie.count
   end
 
+  def test_it_doesnt_create_node_with_empty_insert
+    trie.insert("")
+    assert_equal 0, trie.count
+  end
+
   def test_it_can_populate
     dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
