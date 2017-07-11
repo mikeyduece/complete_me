@@ -1,7 +1,7 @@
 require './test/test_helper'
 require './lib/complete_me'
 
-class TrieTest < Minitest::Test
+class CompleteMeTest < Minitest::Test
   attr_reader :cm
 
   def setup

@@ -39,7 +39,7 @@ class Trie
       dictionary.split.each {|word| insert(word)}
     end
   end
-
+  
   def suggest(string)
     sug_array = []
     get_last_node(string)
