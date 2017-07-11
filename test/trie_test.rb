@@ -82,4 +82,12 @@ class TrieTest < Minitest::Test
     expected = ["apple", "apartment", "appliance"]
     assert_equal expected, trie.suggest("ap")
   end
+
+  def test_it_can_read_addresses
+    addy=trie.addresses
+    trie.populate(addy)
+    expected = ["5878 N Beeler Ct", "5881 N Beeler St", "5882 N Beeler Ct"]
+    assert_equal expected, trie.suggest("58")
+  end
+
 end

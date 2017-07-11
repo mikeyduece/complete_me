@@ -1,4 +1,5 @@
 require './lib/node'
+require 'csv'
 
 class Trie
   attr_reader :root, :count
@@ -6,6 +7,15 @@ class Trie
   def initialize
     @root = Node.new
     @count = 0
+  end
+
+  def addresses
+    addresses = ""
+    filename ||= "./test/address_fixture.csv"
+    CSV.foreach filename,  headers: true, header_converters: :symbol do |row|
+      addresses << row[:full_address] + ","
+    end
+    addresses
   end
 
   def insert(word)
@@ -23,7 +33,11 @@ class Trie
   end
 
   def populate(dictionary)
-    dictionary.split.each {|word| insert(word)}
+    if dictionary.include?(",")
+      dictionary.split(",").each {|word| insert(word)}
+    else
+      dictionary.split.each {|word| insert(word)}
+    end
   end
 
   def suggest(string)
