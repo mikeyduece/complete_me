@@ -9,9 +9,9 @@ class Trie
     @count = 0
   end
 
-  def addresses
+  def addresses(filename)
     addresses = ""
-    filename ||= "./test/addresses.csv"
+    # filename ||= "./test/addresses.csv"
     CSV.foreach filename,  headers: true, header_converters: :symbol do |row|
       addresses << row[:full_address] + ","
     end
@@ -22,7 +22,6 @@ class Trie
     current_node = @root
     return if word == ""
     traverse(word, current_node)
-    @count += 1
   end
 
   def traverse(word, current_node)
@@ -34,6 +33,7 @@ class Trie
         current_node = current_node.children[letter]
       end
     end
+    @count += 1 if !current_node.end_of_word
     current_node.end_of_word = true
   end
 
