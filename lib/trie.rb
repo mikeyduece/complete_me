@@ -18,8 +18,8 @@ class Trie
     addresses
   end
 
-  #### INSERT IS GOING TO NEED TO BE BROKEN OUT ####
-  def insert(word, current_node = @root)
+  def insert(word)
+    current_node = @root
     if word != ""
       word.each_char do |letter|
         if current_node.children[letter]
@@ -43,7 +43,7 @@ class Trie
       dictionary.split.each {|word| insert(word)}
     end
   end
-  
+
   def suggest(string)
     sug_array = []
     get_last_node(string)
@@ -88,11 +88,11 @@ class Trie
 
   def weighted_suggestions(sug_array, string)
     last = get_last_node(string)
-    sug = select_sort(last)
-    sug.map do |word|
+    suggested = select_sort(last)
+    suggested.map do |word|
       sug_array.delete(word)
     end
-    sug + sug_array
+    suggested + sug_array
   end
 
 end
