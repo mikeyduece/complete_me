@@ -20,20 +20,21 @@ class Trie
 
   def insert(word)
     current_node = @root
-    if word != ""
-      word.each_char do |letter|
-        if current_node.children[letter]
-          current_node = current_node.children[letter]
-        else
-          current_node.children[letter] = Node.new
-          current_node = current_node.children[letter]
-        end
+    return if word == ""
+    traverse(word,current_node)
+    @count += 1
+  end
+
+  def traverse(word,current_node)
+    word.each_char do |letter|
+      if current_node.children[letter]
+        current_node = current_node.children[letter]
+      else
+        current_node.children[letter] = Node.new
+        current_node = current_node.children[letter]
       end
-      current_node.end_of_word = true
-      @count += 1
-    else
-      return
     end
+    current_node.end_of_word = true
   end
 
   def populate(dictionary)
