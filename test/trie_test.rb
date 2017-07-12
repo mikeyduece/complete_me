@@ -37,7 +37,7 @@ class TrieTest < Minitest::Test
 
   def test_it_can_populate
     skip
-    dictionary = File.read("/usr/share/dict/words")
+    dictionary = File.read("./test/medium.txt")
     trie.populate(dictionary)
     assert_equal 235886, trie.count
   end
@@ -49,7 +49,7 @@ class TrieTest < Minitest::Test
 
   def test_it_can_suggest_a_dictionary_word
     skip
-    dictionary = File.read("/usr/share/dict/words")
+    dictionary = File.read("./test/medium.txt")
     trie.populate(dictionary)
     assert_equal ["whippersnapper"], trie.suggest("whippers")
   end
@@ -90,13 +90,19 @@ class TrieTest < Minitest::Test
     assert_equal expected, trie.suggest("ap")
   end
 
-  def test_it_can_read_addresses
+  def test_it_can_count_addresses
     skip
-    addy=trie.addresses
+    filename = "test/addresses.csv"
+    addy=trie.addresses(filename)
     trie.populate(addy)
-    # expected = ["5878 N Beeler Ct", "5881 N Beeler St", "5882 N Beeler Ct"]
-    # assert_equal expected, trie.suggest("58")
-    assert_equal 304634, trie.count
+    assert_equal 304558, trie.count
+  end
+
+  def test_it_can_suggest_addresses
+    addy = trie.addresses("./test/address_fixture.csv")
+    trie.populate(addy)
+    expected = ["5878 N Beeler Ct", "5881 N Beeler St", "5882 N Beeler Ct"]
+    assert_equal expected, trie.suggest("58")
   end
 
   def test_it_can_sort_by_weight_prefix
@@ -116,8 +122,16 @@ class TrieTest < Minitest::Test
     trie.select("app", "appliance")
     trie.select("app", "appliance")
     trie.select("app", "appliance")
-    assert_equal ["apple", "apartment", "appliance"], trie.suggest("ap")
-    assert_equal ["appliance", "apple", "apartment"], trie.suggest("app")
+    expected_1 = ["apple", "apartment", "appliance"]
+    expected_2 = ["appliance", "apple", "apartment"]
+    assert_equal expected_1, trie.suggest("ap")
+    assert_equal expected_2, trie.suggest("app")
+  end
+
+  def test_it_can_get_last_node
+    trie.insert("pizza")
+    expected = trie.root.children["p"].children["i"].children["z"]
+    assert_equal expected, trie.get_last_node("piz")
   end
 
 end
