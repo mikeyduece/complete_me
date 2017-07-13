@@ -44,10 +44,6 @@ class Trie
     end
   end
 
-  def error_msg
-    p "Not in the dictionary"
-  end
-
   def suggest(string)
     sug_array = []
     get_all_words(get_last_node(string), string, sug_array)
