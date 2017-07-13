@@ -50,7 +50,6 @@ class Trie
 
   def suggest(string)
     sug_array = []
-    get_last_node(string)
     get_all_words(get_last_node(string), string, sug_array)
     weighted_suggestions(sug_array,string)
   end
