@@ -36,10 +36,21 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_populate
-    skip
-    dictionary = File.read("./test/medium.txt")
+    dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal 235886, trie.count
+  end
+
+  def test_it_can_populate_different_file
+    dictionary = File.read("./test/medium.txt")
+    trie.populate(dictionary)
+    assert_equal 1000, trie.count
+  end
+
+  def test_it_can_suggest_from_different_library
+    dictionary = File.read("./test/medium.txt")
+    trie.populate(dictionary)
+    assert_equal ["wizardly"], trie.suggest("wiz")
   end
 
   def test_it_can_suggest_word
@@ -48,8 +59,7 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_suggest_a_dictionary_word
-    skip
-    dictionary = File.read("./test/medium.txt")
+    dictionary = File.read("/usr/share/dict/words")
     trie.populate(dictionary)
     assert_equal ["whippersnapper"], trie.suggest("whippers")
   end
@@ -91,7 +101,6 @@ class TrieTest < Minitest::Test
   end
 
   def test_it_can_count_addresses
-    skip
     filename = "test/addresses.csv"
     addy=trie.addresses(filename)
     trie.populate(addy)
