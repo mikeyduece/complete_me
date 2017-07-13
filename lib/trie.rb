@@ -11,7 +11,6 @@ class Trie
 
   def addresses(filename)
     addresses = ""
-    # filename ||= "./test/addresses.csv"
     CSV.foreach filename,  headers: true, header_converters: :symbol do |row|
       addresses << row[:full_address] + ","
     end
@@ -43,6 +42,10 @@ class Trie
     else
       dictionary.split.each {|word| insert(word)}
     end
+  end
+
+  def error_msg
+    p "Not in the dictionary"
   end
 
   def suggest(string)
@@ -90,9 +93,7 @@ class Trie
   def weighted_suggestions(sug_array, string)
     last = get_last_node(string)
     suggested = select_sort(last)
-    suggested.map do |word|
-      sug_array.delete(word)
-    end
+    suggested.map {|word| sug_array.delete(word)}
     suggested + sug_array
   end
 
